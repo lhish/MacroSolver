@@ -1,0 +1,3 @@
+#define BAR_I() BAR
+#define BAR() 1 BAR_I
+BAR () () ()

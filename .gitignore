@@ -1,0 +1,37 @@
+/build
+/cmake-build-debug
+*.exe
+*.obj
+*.i
+/.idea/sonarlint
+*.idx
+*.zip
+*.name
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+/.idea/editor.xml
+cmake-build-debug-
+/html/
+/latex/
+*.png
+/cmake-build-release/*
+cmake*
+.codebuddy
+.vscode
+.idea

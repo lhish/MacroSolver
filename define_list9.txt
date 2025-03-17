@@ -1,0 +1,185 @@
+#define COUNT_ARGS_IMPL_WITH_ARGS(N, x, ...) \
+  DEFER(CAT(COUNT_ARGS_IMPL, __VA_OPT__(_WITH_ARGS1)))(ADD(N)(), ##__VA_ARGS__)
+#define SELF(ME) ME
+#define MINUS(NUM) CAT(MINUS_IMPL_, NUM)
+#define MINUS_IMPL_1() 0
+#define MINUS_IMPL_2() 1
+#define MINUS_IMPL_3() 2
+#define MINUS_IMPL_4() 3
+#define MINUS_IMPL_5() 4
+#define MINUS_IMPL_6() 5
+#define MINUS_IMPL_7() 6
+#define MINUS_IMPL_8() 7
+#define MINUS_IMPL_9() 8
+#define MINUS_IMPL_10() 9
+#define MINUS_IMPL_11() 10
+#define MINUS_IMPL_12() 11
+#define MINUS_IMPL_13() 12
+#define MINUS_IMPL_14() 13
+#define MINUS_IMPL_15() 14
+#define MINUS_IMPL_16() 15
+#define MINUS_IMPL_17() 16
+#define MINUS_IMPL_18() 17
+#define MINUS_IMPL_19() 18
+#define MINUS_IMPL_20() 19
+#define MINUS_IMPL_21() 20
+#define MINUS_IMPL_22() 21
+#define MINUS_IMPL_23() 22
+#define MINUS_IMPL_24() 23
+#define MINUS_IMPL_25() 24
+#define MINUS_IMPL_26() 25
+#define MINUS_IMPL_27() 26
+#define MINUS_IMPL_28() 27
+#define MINUS_IMPL_29() 28
+#define MINUS_IMPL_30() 29
+#define MINUS_IMPL_31() 30
+#define MINUS_IMPL_32() 31
+#define MINUS_IMPL_33() 32
+#define MINUS_IMPL_34() 33
+#define MINUS_IMPL_35() 34
+#define MINUS_IMPL_36() 35
+#define MINUS_IMPL_37() 36
+#define MINUS_IMPL_38() 37
+#define MINUS_IMPL_39() 38
+#define MINUS_IMPL_40() 39
+#define MINUS_IMPL_41() 40
+#define MINUS_IMPL_42() 41
+#define MINUS_IMPL_43() 42
+#define MINUS_IMPL_44() 43
+#define MINUS_IMPL_45() 44
+#define MINUS_IMPL_46() 45
+#define MINUS_IMPL_47() 46
+#define MINUS_IMPL_48() 47
+#define MINUS_IMPL_49() 48
+#define MINUS_IMPL_50() 49
+#define ADD(NUM) CAT(ADD_IMPL_, NUM)
+#define ADD_IMPL_0() 1
+#define ADD_IMPL_1() 2
+#define ADD_IMPL_2() 3
+#define ADD_IMPL_3() 4
+#define ADD_IMPL_4() 5
+#define ADD_IMPL_5() 6
+#define ADD_IMPL_6() 7
+#define ADD_IMPL_7() 8
+#define ADD_IMPL_8() 9
+#define ADD_IMPL_9() 10
+#define ADD_IMPL_10() 11
+#define ADD_IMPL_11() 12
+#define ADD_IMPL_12() 13
+#define ADD_IMPL_13() 14
+#define ADD_IMPL_14() 15
+#define ADD_IMPL_15() 16
+#define ADD_IMPL_16() 17
+#define ADD_IMPL_17() 18
+#define ADD_IMPL_18() 19
+#define ADD_IMPL_19() 20
+#define ADD_IMPL_20() 21
+#define ADD_IMPL_21() 22
+#define ADD_IMPL_22() 23
+#define ADD_IMPL_23() 24
+#define ADD_IMPL_24() 25
+#define ADD_IMPL_25() 26
+#define ADD_IMPL_26() 27
+#define ADD_IMPL_27() 28
+#define ADD_IMPL_28() 29
+#define ADD_IMPL_29() 30
+#define ADD_IMPL_30() 31
+#define ADD_IMPL_31() 32
+#define ADD_IMPL_32() 33
+#define ADD_IMPL_33() 34
+#define ADD_IMPL_34() 35
+#define ADD_IMPL_35() 36
+#define ADD_IMPL_36() 37
+#define ADD_IMPL_37() 38
+#define ADD_IMPL_38() 39
+#define ADD_IMPL_39() 40
+#define ADD_IMPL_40() 41
+#define ADD_IMPL_41() 42
+#define ADD_IMPL_42() 43
+#define ADD_IMPL_43() 44
+#define ADD_IMPL_44() 45
+#define ADD_IMPL_45() 46
+#define ADD_IMPL_46() 47
+#define ADD_IMPL_47() 48
+#define ADD_IMPL_48() 49
+#define ADD_IMPL_49() 50
+#define PRECAT(x, y) x##y
+#define CAT(x, y) PRECAT(x, y)
+#define PROBE0() 1, 0
+#define GET_SECOND(x, n, ...) n
+#define CHECK(...) GET_SECOND(__VA_ARGS__)
+#define BOOL(x) CHECK(CAT(PROBE, x)(), 1)
+#define IF_ELSE(cond) CAT(IF_, BOOL(cond))
+#define IF_0(x) _IF_0_ELSE
+#define IF_1(x) x _IF_1_ELSE
+#define _IF_0_ELSE(x) x
+#define _IF_1_ELSE(y)
+#define CAL_SELF_INF_0(ME) SELF(SELF(ME))
+#define CAL_SELF_INF_1(ME) CAL_SELF_INF_0(CAL_SELF_INF_0(ME))
+#define CAL_SELF_INF_2(ME) CAL_SELF_INF_1(CAL_SELF_INF_1(ME))
+#define CAL_SELF_INF(ME) CAL_SELF_INF_2(CAL_SELF_INF_2(ME))
+#define VA(...) __VA_ARGS__
+#define EMPTY()
+#define DEFER(id) id EMPTY()
+#define COUNT_ARGS(...) CAL_SELF_INF(COUNT_ARGS_IMPL0(0, ##__VA_ARGS__))
+#define COUNT_ARGS_IMPL0(N, ...) COUNT_ARGS_IMPL##__VA_OPT__(_WITH_ARGS)(N, ##__VA_ARGS__)
+#define COUNT_ARGS_IMPL_WITH_ARGS1(...) DEFER(COUNT_ARGS_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define COUNT_ARGS_IMPL(N) N
+#define FOREACH(FUNC, ...) CAL_SELF_INF(FOREACH_IMPL0(FUNC, , __VA_ARGS__))
+#define FOREACH_IMPL0(FUNC, ...) FOREACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, __VA_ARGS__)
+#define FOREACH_IMPL_WITH_ARGS(FUNC, RES, x, ...) \
+  DEFER(CAT(FOREACH_IMPL, __VA_OPT__(_WITH_ARGS1)))(FUNC, RES FUNC(x), __VA_ARGS__)
+#define FOREACH_IMPL_WITH_ARGS1(...) DEFER(FOREACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOREACH_IMPL(FUNC, RES) RES
+#define FOR_N(FUNC, x, N) CAL_SELF_INF(FOR_N_IMPL_PROCESS(FUNC, x, N))
+#define FOR_N_IMPL_PROCESS(FUNC, x, N) \
+  DEFER(CAT(FOR_N_IMPL_, IF_ELSE(MINUS(N)())(PROCESS_)(FINAL)))(FUNC, FUNC(x), MINUS(N)())
+#define FOR_N_IMPL_PROCESS_(...) DEFER(FOR_N_IMPL_PROCESS)(__VA_ARGS__)
+#define FOR_N_IMPL_FINAL(FUNC, x, N) x
+#define FOR_COMMA_EACH(FUNC, ...) SELF(VA CAL_SELF_INF(FOR_COMMA_EACH_IMPL0(FUNC, , __VA_ARGS__)))
+#define FOR_COMMA_EACH_IMPL0(FUNC, ...) FOR_COMMA_EACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, __VA_ARGS__)
+#define FOR_COMMA_EACH_IMPL_WITH_ARGS(FUNC, RES, x, ...)    \
+  DEFER(CAT(FOR_COMMA_EACH_IMPL, __VA_OPT__(_WITH_ARGS1)))( \
+      FUNC, (IF_ELSE(COUNT_ARGS(RES))(VA)(CAT)(IF_ELSE(COUNT_ARGS(RES))(VA)() RES, FUNC(x))), ##__VA_ARGS__)
+#define FOR_COMMA_EACH_IMPL_WITH_ARGS1(...) DEFER(FOR_COMMA_EACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOR_COMMA_EACH_IMPL(FUNC, RES) RES
+#define FOR_COMMA2_EACH(FUNC, ...) SELF(VA CAL_SELF_INF(FOR_COMMA2_EACH_IMPL0(FUNC, , __VA_ARGS__)))
+#define FOR_COMMA2_EACH_IMPL0(FUNC, ...) FOR_COMMA2_EACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, __VA_ARGS__)
+#define FOR_COMMA2_EACH_IMPL_WITH_ARGS(FUNC, RES, FIRST, x, ...)                                            \
+  DEFER(CAT(FOR_COMMA2_EACH_IMPL, __VA_OPT__(_WITH_ARGS1)))(                                                \
+      FUNC, (IF_ELSE(COUNT_ARGS(RES))(VA)(CAT)(IF_ELSE(COUNT_ARGS(RES))(VA)() RES, FUNC(FIRST, x))), FIRST, \
+      ##__VA_ARGS__)
+#define FOR_COMMA2_EACH_IMPL_WITH_ARGS1(...) DEFER(FOR_COMMA2_EACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOR_COMMA2_EACH_IMPL(FUNC, RES, FIRST) RES
+#define FOR2EACH(FUNC, ...) CAL_SELF_INF(FOR2EACH_IMPL0(FUNC, , __VA_ARGS__))
+#define FOR2EACH_IMPL0(FUNC, ...) FOR2EACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, __VA_ARGS__)
+#define FOR2EACH_IMPL_WITH_ARGS(FUNC, RES, FIRST, x, ...) \
+  DEFER(CAT(FOR2EACH_IMPL, __VA_OPT__(_WITH_ARGS1)))(FUNC, RES FUNC(FIRST, x), FIRST, ##__VA_ARGS__)
+#define FOR2EACH_IMPL_WITH_ARGS1(...) DEFER(FOR2EACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOR2EACH_IMPL(FUNC, RES, FIRST) RES
+#define FOR22EACH(FUNC, FUNC2, ...) SELF(VA CAL_SELF_INF(FOR22EACH_IMPL0(FUNC, FUNC2, , __VA_ARGS__)))
+#define FOR22EACH_IMPL0(FUNC, FUNC2, ...) FOR22EACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, FUNC2, __VA_ARGS__)
+#define FOR22EACH_IMPL_WITH_ARGS(FUNC, FUNC2, RES, FIRST, x, ...) \
+  DEFER(CAT(FOR22EACH_IMPL, __VA_OPT__(_WITH_ARGS1)))(            \
+      FUNC, FUNC2, (IF_ELSE(COUNT_ARGS(RES))(VA)() RES FUNC(FIRST, x), FUNC2(FIRST, x)), FIRST, ##__VA_ARGS__)
+#define FOR22EACH_IMPL_WITH_ARGS1(...) DEFER(FOR22EACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOR22EACH_IMPL(FUNC, FUNC2, RES, FIRST) RES
+#define IGNORE1VA(a, ...) VA(__VA_ARGS__)
+#define FOR_COMMA22num_EACH(FUNC, FUNC2, ...) \
+  SELF(VA CAL_SELF_INF(FOR_COMMA22num_EACH_IMPL0(FUNC, FUNC2, 0, , __VA_ARGS__)))
+#define FOR_COMMA22num_EACH_IMPL0(FUNC, FUNC2, num, ...) \
+  FOR_COMMA22num_EACH_IMPL##__VA_OPT__(_WITH_ARGS)(FUNC, FUNC2, num, __VA_ARGS__)
+#define FOR_COMMA22num_EACH_IMPL_WITH_ARGS(FUNC, FUNC2, num, RES, x, ...)                                         \
+  DEFER(CAT(FOR_COMMA22num_EACH_IMPL, __VA_OPT__(_WITH_ARGS1)))(                                                  \
+      FUNC, FUNC2, ADD(num)(),                                                                                    \
+      (IF_ELSE(COUNT_ARGS(RES))(VA)(IGNORE1VA)(IF_ELSE(COUNT_ARGS(RES))(VA)() RES, FUNC(x, num), FUNC2(x, num))), \
+      ##__VA_ARGS__)
+#define FOR_COMMA22num_EACH_IMPL_WITH_ARGS1(...) DEFER(FOR_COMMA22num_EACH_IMPL_WITH_ARGS)(__VA_ARGS__)
+#define FOR_COMMA22num_EACH_IMPL(FUNC, FUNC2, num, RES) RES
+#define GET_KID_NAME_AND_NUM1(KidName, num) \
+  {                                         \
+    #KidName
+#define GET_KID_NAME_AND_NUM2(KidName, num) \
+  num                                       \
+  }
+FOR_COMMA22num_EACH(GET_KID_NAME_AND_NUM1, GET_KID_NAME_AND_NUM2, a,b,c)

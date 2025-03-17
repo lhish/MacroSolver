@@ -1,0 +1,8 @@
+#define BAR_I() BAR
+#define BAR()  DEFER(BAR_I)()() 1
+#define EMPTY()
+#define DEFER(id) id EMPTY()
+#define EXPAND(...) __VA_ARGS__
+BAR()
+EXPAND(BAR())
+EXPAND(EXPAND(BAR()))

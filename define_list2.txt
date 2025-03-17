@@ -1,0 +1,4 @@
+#define BAR() 1 BAZ()
+#define BAZ() BAR
+#define FOO(x) BAR() - x()
+FOO(BAR())

@@ -1,0 +1,4 @@
+#define FOO(x, y) x + y
+#define BAR(y) 13 + y
+#define BAZ(z) FOO(BAZ(16), FOO(11, 0)) + z
+BAZ(15)

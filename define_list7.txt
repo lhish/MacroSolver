@@ -1,0 +1,5 @@
+#define EMPTY()
+#define DEFER(id) id EMPTY()
+#define FOO() macro
+#define EXPAND(...) __VA_ARGS__
+EXPAND(DEFER(FOO)())

@@ -1,0 +1,5 @@
+#define FOO_(x) FOO_1(x)
+#define FOO_1(x) FOO_2(x) + 1
+#define FOO_2(x) FOO_1(x) - 1
+#define BAR(x) FOO_ ## x (12) FOO_2
+BAR(1) (5)

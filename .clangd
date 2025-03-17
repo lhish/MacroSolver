@@ -1,0 +1,38 @@
+CompileFlags:
+  Add: [
+    -std=c++23,
+    -Wall,
+    -Wextra
+  ]
+  
+Diagnostics:
+  ClangTidy:
+    Add: [
+      bugprone-*,
+      boost-*,
+      clang-analyzer-*,
+      # cppcoreguidelines-*,
+      google-*,
+      misc-*,
+      # modernize-*,
+      performance-*,
+      # readability-*
+    ]
+
+    # CheckOptions:
+    #   readability-identifier-naming.VariableCase: lower_case
+    #   readability-identifier-naming.ProtectedMemberCase: lower_case
+    #   readability-identifier-naming.ProtectedMemberSuffix: _ 
+    #   readability-identifier-naming.PrivateMemberCase: lower_case
+    #   readability-identifier-naming.PrivateMemberSuffix: _ 
+    #   readability-identifier-naming.PublicMemberCase: lower_case
+    #   readability-identifier-naming.NamespaceCase: lower_case
+    #   readability-identifier-naming.EnumCase: CamelCase
+    #   readability-identifier-naming.ClassCase: CamelCase
+    #   readability-identifier-naming.StructCase: CamelCase
+    #   readability-identifier-naming.FunctionCase: CamelCase
+    #   readability-identifier-naming.ClassMethodCase: CamelCase
+    #   readability-identifier-naming.MethodCase: CamelCase
+    #   readability-identifier-naming.ConstantPrefix: k
+    #   readability-identifier-naming.ConstantCase: CamelCase
+
