@@ -4,6 +4,7 @@
 #include "solve_macro.h"
 
 #include <iostream>
+#include <sstream>
 namespace lhy {
 inline std::string_view trim(const std::string_view str) {
   const auto start = str.find_first_not_of(" \t\n\r");
@@ -122,9 +123,9 @@ std::list<std::string>::iterator MacroSolver::SolveMacro(
       bool flag = iter == iter_ret;
       std::string add_used = *iter;
       auto result = Expand(iter, iter_temp, tokens, used);
-      std::cout << "Expanding:" << Cat(iter, iter_temp) << std::endl;
+      std::cout << "Expanding:" << Cat(iter, iter_temp) << '\n';
       auto first_iter = tokens.insert(tokens.erase(iter, iter_temp), result.begin(), result.end());
-      std::cout << "Result:" << Cat(tokens.begin(), tokens.end()) << std::endl;
+      std::cout << "Result:" << Cat(tokens.begin(), tokens.end()) << '\n';
       used.emplace_back(add_used, iter_temp);
       iter = first_iter;
       if (flag) {
@@ -281,16 +282,16 @@ std::list<std::string> MacroSolver::GetTokens(std::string macro) const {
 }
 std::string MacroSolver::Cat(const std::list<std::string>::iterator begin,
                              const std::list<std::string>::iterator end) const {
-  std::string ret;
+  std::ostringstream oss;
   for (auto iter = begin; iter != end; ++iter) {
     for (const auto& each : *iter) {
       if (each != '\n' && each != '#') {
-        ret += each;
+        oss << each;
       }
     }
-    ret += ' ';
+    oss << ' ';
   }
-  return ret;
+  return oss.str();
 }
 std::string MacroSolver::CatWithUsed(std::list<std::string>::iterator begin,
                                      std::list<std::string>::iterator end) const {

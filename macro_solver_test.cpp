@@ -7,7 +7,7 @@
 #include "solve_macro.h"
 using namespace lhy;
 int main() {
-  for (int i = 1; i <= 9; i++) {
+  for (int i = 9; i <= 9; i++) {
     std::ifstream file(std::string("../define_list") + std::to_string(i) + ".txt");
     std::string line;
     std::string final_line;
