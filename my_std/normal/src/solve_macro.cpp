@@ -122,10 +122,12 @@ std::list<std::string>::iterator MacroSolver::SolveMacro(
       ++iter_temp;
       bool flag = iter == iter_ret;
       std::string add_used = *iter;
+      auto expand_string = Cat(iter, iter_temp);
+      std::cout << "Expanding:" << expand_string << std::endl;
       auto result = Expand(iter, iter_temp, tokens, used);
-      std::cout << "Expanding:" << Cat(iter, iter_temp) << '\n';
       auto first_iter = tokens.insert(tokens.erase(iter, iter_temp), result.begin(), result.end());
-      std::cout << "Result:" << Cat(tokens.begin(), tokens.end()) << '\n';
+      std::cout << "Expanding:" << expand_string << std::endl;
+      std::cout << "Result:" << Cat(tokens.begin(), tokens.end()) << std::endl;
       used.emplace_back(add_used, iter_temp);
       iter = first_iter;
       if (flag) {
@@ -217,9 +219,11 @@ std::list<std::string> MacroSolver::Expand(std::list<std::string>::iterator begi
           result.back() += *std::next(iter, next_num);
           next_num++;
         }
-        result.insert(result.end(), std::next(iter, next_num), now_iter);
+        tokens.erase(now_iter);
+        iter = std::next(iter, next_num - 1);
+      } else {
+        iter = now_iter;
       }
-      iter = now_iter;
     } else if (each == "__VA_ARGS__") {
       std::list<std::string> push_element;
       std::list<std::string> ori_push_element;

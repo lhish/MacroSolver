@@ -1,5 +1,5 @@
 //
-// Created by lhy on 25-3-12.
+// Created by 连昊宇 on 25-3-12.
 //
 #include <fstream>
 #include <iostream>
@@ -20,6 +20,8 @@ int main() {
         } else {
           final_line.pop_back();
         }
+      } else if (line[0] == '/') {
+        continue;
       } else {
         std::cout << macro_solver.SolveOneMacro(line) << std::endl;
         std::cout << std::endl;
