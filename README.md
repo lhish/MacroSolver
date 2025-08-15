@@ -1,10 +1,42 @@
 # MacroSolver
 
-MacroSolver是一个C++宏展开工具，用于解析和展开C/C++预处理器宏定义，但只支持函数式宏。这个项目是学习和理解C++宏机制的最佳资源之一。
+MacroSolver 是一个 C++ 宏展开工具，专注于解析和展开 C/C++ 预处理器中的函数式宏定义。本项目是学习和深入理解 C++ 宏机制的绝佳资源。
 
-MacroSolver is a C++ macro expansion tool designed for parsing and expanding C/C++ preprocessor macro definitions, but
-only supports function-like macros. This
-project serves as an excellent learning resource for understanding the intricacies of C++ macros.
+本项目是全球首个实现跨平台可视化宏扩展的工具，能够清晰地展示宏展开的每一步过程。它全面支持所有函数宏特性，尽管 Visual
+Studio 也提供了类似功能，但缺乏跨平台能力。更重要的是，我们的项目在原理上完全公开，透明度极高。
+
+MacroSolver is a C++ macro expansion tool specifically designed for parsing and expanding function-like preprocessor
+macros in C/C++. This project stands as an excellent resource for learning and gaining a deep understanding of C++ macro
+mechanisms.
+
+MacroSolver is the world's first tool to offer cross-platform visual macro expansion, clearly illustrating each step of
+the expansion process. It fully supports all features of function-like macros. While Visual Studio offers similar
+functionality, it lacks cross-platform capabilities. Crucially, our project boasts unparalleled transparency due to its
+fully disclosed underlying principles.
+
+## 对伪递归的简单演示 / Simple Demonstration of Pseudo-Recursion
+
+**场景描述 (Scenario Description):**
+
+以下宏定义模拟了一种“伪递归”的行为，即一个宏通过列表展开来调用自身（或相似的结构），尽管 C++ 预处理器本身并不直接支持递归。
+
+The following macro definition simulates a form of "pseudo-recursion." A macro calls itself (or similar structures)
+through list expansion, even though C++ preprocessor itself does not directly support recursion.
+
+```cpp
+#define f(x) void x();
+FOREACH(f, a, b, c)
+```
+
+**展开结果 / Expanded Result:**
+
+```cpp
+void a();
+
+void b();
+
+void c();
+```
 
 ## 功能特点 / Features
 
@@ -62,4 +94,4 @@ process without the need to delve into vast and complex compiler source code
             └── solve_macro.cpp          // Implementation file
 ```
 
-##              
+##                  
