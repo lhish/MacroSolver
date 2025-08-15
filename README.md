@@ -15,8 +15,7 @@ project serves as an excellent learning resource for understanding the intricaci
 - 支持标记连接操作符 (##)
 - 支持可变参数宏 (__VA_ARGS__)
 - 支持__VA_OPT__扩展
-- 防止宏递归展开
-
+- 支持伪递归
 - Basic macro definitions and expansions
 - Macros with parameters
 - Nested macro expansions
@@ -24,7 +23,7 @@ project serves as an excellent learning resource for understanding the intricaci
 - Token pasting operator (##)
 - Variadic macros (__VA_ARGS__)
 - __VA_OPT__ extensions
-- Prevention of recursive macro expansions
+- Supports pseudo-recursion
 
 ## 为什么不通过编译器源码来学习宏 / Why not learn macros by studying the compiler source code?
 
